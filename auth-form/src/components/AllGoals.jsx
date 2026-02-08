@@ -56,7 +56,7 @@ function AllGoals() {
     {
       name: "Gym Routine",
       description: "Workout 5 days a week",
-      status: "New",
+      status: "Completed",
       startDate: "2026-02-10",
       endDate: "2026-04-10",
     },
@@ -64,9 +64,8 @@ function AllGoals() {
 
   return (
     <div className="all-goals-container my-3">
-      <h2 className="my-3">Your Goals</h2>
 
-      <div className="goals-grid mb-5">
+      <div className="goals-grid m-5 mx-5">
         {goals.map((goal, index) => (
           <GoalCard key={index} goal={goal} />
         ))}

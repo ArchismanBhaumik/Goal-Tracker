@@ -8,7 +8,7 @@ function GoalCard({ goal }) {
         <p>{goal.description}</p>
 
         <div className="goal-dates">
-          <span>
+          <span className="me-1">
             <strong>Start:</strong> {goal.startDate}
           </span>
           <span>
@@ -18,7 +18,15 @@ function GoalCard({ goal }) {
 
         <p className="goal-status">
           Status:{" "}
-          <span>{goal.status}</span>
+          <span
+            className={`px-2 pb-1 rounded-pill 
+            ${goal.status === "New" ? "bg-primary" : ""}
+            ${goal.status === "In Progress" ? "bg-warning" : ""}
+            ${goal.status === "Completed" ? "bg-success" : ""}
+            `}
+          >
+            {goal.status}
+          </span>
         </p>
       </div>
     </div>

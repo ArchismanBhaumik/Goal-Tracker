@@ -230,6 +230,13 @@
 .all-goals-container {
   display: contents;
 }
+.goal-status {
+  
+}
+.close-modal{
+  position: relative;
+  left: 48%;
+}
 
 @media screen and (max-width: 600px) {
   .sidebar.expanded {
@@ -237,7 +244,9 @@
   }
   .goals-grid{
    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-   top:20px
-
+   top:20px;
+   position: absolute;
+  top: 20px;
+  left: 0px;
   }
 }
