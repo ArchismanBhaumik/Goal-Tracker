@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function SideBar({userName}) {
 
   const [open, setOpen] = useState(false);
+  const navigate  = useNavigate()
+
+  function navigateTo (path){
+    navigate(path)
+    setOpen(false);
+  }
 
   return (
     <>
@@ -28,9 +35,10 @@ function SideBar({userName}) {
         />
 
         <div className='sidebar-navigator'>
-          <span className='menu-items'>Your Goals</span>
-          <span className='menu-items'>Your Weekly Goals</span>
-          <span className='menu-items'>Your Completed Goals</span>
+          <span className='menu-items' onClick={()=>navigateTo('/')}>Home</span>
+          <span className='menu-items' onClick={()=>navigateTo('/all-goals')}>Your Goals</span>
+          <span className='menu-items' onClick={()=>navigateTo('/weekly')}>Your Weekly Goals</span>
+          <span className='menu-items' onClick={()=>navigateTo('/completed')}>Your Completed Goals</span>
         </div>
       </div>
     </>
