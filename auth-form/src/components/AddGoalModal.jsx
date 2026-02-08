@@ -1,6 +1,7 @@
-import React, { useState,useRef } from "react";
-
-function AddGoalModal({setAddGoalOpen, addGoalOpen}) {
+import React, { useState, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+function AddGoalModal({ setAddGoalOpen, addGoalOpen }) {
   const [goal, setGoal] = useState({
     name: "",
     description: "",
@@ -8,7 +9,7 @@ function AddGoalModal({setAddGoalOpen, addGoalOpen}) {
     startDate: "",
     endDate: "",
   });
- const modalRef = useRef(null);
+  const modalRef = useRef(null);
   function handleChange(e) {
     setGoal({ ...goal, [e.target.name]: e.target.value });
   }
@@ -26,16 +27,18 @@ function AddGoalModal({setAddGoalOpen, addGoalOpen}) {
 
     setAddGoalOpen(false);
   }
-   
 
   return (
-    <div className='modal-overlay' onClick={() => setModalOpen(false)}>
+    <div className="modal-overlay" onClick={() => setModalOpen(false)}>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-
+        <FontAwesomeIcon
+          icon={faXmark}
+          className="close-modal"
+          onClick={() => setAddGoalOpen(false)}
+        />
         <h2 className="modal-title">Add New Goal</h2>
 
         <form onSubmit={handleSubmit}>
-
           {/* Goal Name */}
           <div className="input-group">
             <input
@@ -101,7 +104,6 @@ function AddGoalModal({setAddGoalOpen, addGoalOpen}) {
             Add Goal
           </button>
         </form>
-
       </div>
     </div>
   );
