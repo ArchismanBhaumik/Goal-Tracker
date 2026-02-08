@@ -10,10 +10,12 @@
   right: 20px;
   background-color: cornflowerblue;
   color: snow;
+  border-radius: 5px
 }
 .btn-sign-in:hover {
   background-color: snow;
   color: cornflowerblue;
+
 }
 
 .btn-sign-in:focus {
@@ -200,11 +202,7 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 600px) {
-  .sidebar.expanded {
-    width: 45%;
-  }
-}
+
 
 .open-btn {
   font-size: 24px;
@@ -213,4 +211,33 @@
   position: absolute;
   top: 5px;
   left: 5px;
+}
+
+.description{
+  height: 50px;
+}
+
+.goal-card-header{
+  background-color: cornflowerblue !important;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+}
+
+.all-goals-container {
+  display: contents;
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar.expanded {
+    width: 45%;
+  }
+  .goals-grid{
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   top:20px
+
+  }
 }

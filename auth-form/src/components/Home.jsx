@@ -7,10 +7,12 @@ import AllGoals from "./AllGoals";
 import WeeklyGoals from "./WeeklyGoals";
 import CompletedGoals from "./CompletedGoals";
 import SideBar from "./SideBar";
+import AddGoalModal from "./AddGoalModal";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [userName, setUserName] = useState("");
+  const [addGoalOpen , setAddGoalOpen] = useState(false);
 
   function setModalToggle() {
     setModalOpen((prev) => !prev);
@@ -24,12 +26,12 @@ function Home() {
       >
         Sign in
       </button>
-      <button className={userName ? "btn-sign-in" : "d-none"}>
+      <button className={userName ? "btn-sign-in" : "d-none"} onClick={()=>setAddGoalOpen((prev)=>!prev)}>
         Add New Goal
       </button>
       <div>
         <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage userName={userName}/>} />
             <Route path="/all-goals" element={<AllGoals />} />
             <Route path="/weekly" element={<WeeklyGoals />} />
             <Route path="/completed" element={<CompletedGoals />} />
@@ -43,6 +45,10 @@ function Home() {
           setUserName={setUserName}
         />
       </div>
+        <div className={`${addGoalOpen ? "" : "d-none"}`}>
+        <AddGoalModal addGoalOpen={addGoalOpen} setAddGoalOpen={setAddGoalOpen} />
+      </div>
+      
       <SideBar userName={userName} />
     </div>
   );
