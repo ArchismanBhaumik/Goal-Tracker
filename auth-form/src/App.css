@@ -1,0 +1,217 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.btn-sign-in {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: cornflowerblue;
+  color: snow;
+}
+.btn-sign-in:hover {
+  background-color: snow;
+  color: cornflowerblue;
+}
+
+.btn-sign-in:focus {
+  outline: 0;
+}
+/* Center the modal and add overlay blur */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal card */
+.modal-container {
+  background: rgba(255, 255, 255, 0.95);
+  width: 350px;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+.d-none {
+  display: none;
+}
+.modal-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Input group */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.modal-label {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.input-style {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.2s;
+}
+
+.input-style:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 4px rgba(79, 70, 229, 0.4);
+}
+
+/* Button */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-submit:hover {
+  background: #4338ca;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.warning {
+  background-color: red;
+  color: black;
+  margin-top: 5px;
+}
+
+.typewriter {
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid black;
+  font-size: clamp(16px, 4vw, 28px);
+  animation:
+    typing 5s steps(28, end) infinite alternate,
+    /* Typing animation, loops infinitely and reverses */ blink-caret 0.75s
+      step-end infinite;
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  } /* fully typed */
+  100% {
+    width: 0;
+  } /* erased */
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Button to open the sidebar */
+.open-btn {
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Sidebar container (both states share this) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: cornflowerblue;
+  color: snow;
+  overflow: hidden; 
+  transition: width 0.3s ease;
+  z-index: 1000;
+}
+
+/* Expanded width */
+.sidebar.expanded {
+  width: 250px;
+}
+
+/* Collapsed width */
+.sidebar.collapsed {
+  width: 0;
+}
+
+/* Close icon */
+.close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Navigation items */
+.sidebar-navigator {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.menu-items {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+  padding: 8px 0;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 5px;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .sidebar.expanded {
+    width: 45%;
+  }
+}
+
+.open-btn {
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
