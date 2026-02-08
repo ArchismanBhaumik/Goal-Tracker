@@ -63,10 +63,10 @@ function AllGoals() {
   ];
 
   return (
-    <div className="all-goals-container">
-      <h2 className="my-5">Your Goals</h2>
+    <div className="all-goals-container my-3">
+      <h2 className="my-3">Your Goals</h2>
 
-      <div className="goals-grid">
+      <div className="goals-grid mb-5">
         {goals.map((goal, index) => (
           <GoalCard key={index} goal={goal} />
         ))}
