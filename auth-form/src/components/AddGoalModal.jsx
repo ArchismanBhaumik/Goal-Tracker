@@ -1,7 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { GoalContext } from "../context/Context";
+
 function AddGoalModal({ setAddGoalOpen, addGoalOpen }) {
+  const { goalsArr, setGoalsArr } = useContext(GoalContext);
+
   const [goal, setGoal] = useState({
     name: "",
     description: "",
@@ -9,7 +13,7 @@ function AddGoalModal({ setAddGoalOpen, addGoalOpen }) {
     startDate: "",
     endDate: "",
   });
-  const modalRef = useRef(null);
+
   function handleChange(e) {
     setGoal({ ...goal, [e.target.name]: e.target.value });
   }
@@ -17,15 +21,22 @@ function AddGoalModal({ setAddGoalOpen, addGoalOpen }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // simple validation
     if (!goal.name || !goal.description || !goal.startDate || !goal.endDate) {
       alert("Fields cannot be empty!");
       return;
     }
 
-    console.log("Goal Submitted: ", goal);
+    // ⬅️ Push new goal into global context
+    setGoalsArr([...goalsArr, goal]);
 
     setAddGoalOpen(false);
+    setGoal({
+      name: "",
+      description: "",
+      status: "New",
+      startDate: "",
+      endDate: "",
+    });
   }
 
   return (

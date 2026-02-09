@@ -1,5 +1,4 @@
 import React from "react";
-
 function GoalCard({ goal }) {
   return (
     <div className="card">

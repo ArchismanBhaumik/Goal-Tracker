@@ -1,74 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import GoalCard from "./GoalCard";
+import { GoalContext } from "../context/Context";
 
 function AllGoals() {
-  // Sample goals — replace with actual stored goals later
-  const goals = [
-    {
-      name: "Learn React",
-      description: "Complete React basics and projects",
-      status: "In Progress",
-      startDate: "2026-02-01",
-      endDate: "2026-03-01",
-    },
-    {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "New",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-     {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "New",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-     {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "New",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-     {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "New",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-    {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "New",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-    {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "New",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-    {
-      name: "Gym Routine",
-      description: "Workout 5 days a week",
-      status: "Completed",
-      startDate: "2026-02-10",
-      endDate: "2026-04-10",
-    },
-  ];
+  const { goalsArr } = useContext(GoalContext);
 
   return (
     <div className="all-goals-container my-3">
-
       <div className="goals-grid m-5 mx-5">
-        {goals.map((goal, index) => (
-          <GoalCard key={index} goal={goal} />
-        ))}
+        {goalsArr.length > 0 ? (
+          goalsArr.map((goal, index) => (
+            <GoalCard key={index} goal={goal} />
+          ))
+        ) : (
+          <p>No goals yet. Start adding something!</p>
+        )}
       </div>
     </div>
   );
