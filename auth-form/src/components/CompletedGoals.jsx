@@ -1,9 +1,26 @@
 import React from 'react'
+import { useContext } from 'react';
+import GoalCard from "./GoalCard";
+import { GoalContext } from "../context/Context";
 
 function CompletedGoals() {
+   const { goalsArr } = useContext(GoalContext);
   return (
-    <div>CompletedGoals</div>
+   <div className="all-goals-container my-3">
+      <div className="goals-grid m-5 mx-5">
+        {goalsArr.length > 0 ? (
+          goalsArr.filter((goal)=>goal.status == 'Completed').map((goal, index) => (
+            <GoalCard key={index} goal={goal} />
+          ))
+        ) : (
+          <p>No goals Completed Yet!</p>
+        )}
+      </div>
+    </div>
   )
 }
 
 export default CompletedGoals
+
+
+
