@@ -13,7 +13,7 @@ function CompletedGoals() {
             <GoalCard key={index} goal={goal} />
           ))
         ) : (
-          <p>No goals Completed Yet!</p>
+          <p>No goals Completed Yet! </p>
         )}
       </div>
     </div>
